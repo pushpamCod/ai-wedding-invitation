@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Wedding Invitation Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+</head>
+<body class="form-page">
+
+<!-- DECORATIVE TOP BAND -->
+<div class="form-top-band">
+    <div class="band-lotuses">
+        {% for i in range(9) %}<span class="lotus">❀</span>{% endfor %}
+    </div>
+</div>
+
+<!-- HERO HEADER -->
+<div class="form-hero">
+    <div class="hero-medallion">ॐ</div>
+    <h1 class="hero-title">AI Wedding Invitation</h1>
+    <p class="hero-subtitle">Create your perfect invitation in seconds</p>
+    <div class="hero-divider">
+        <span class="div-line"></span>
+        <span class="div-diamond">◆</span>
+        <span class="div-line"></span>
+    </div>
+</div>
+
+<div class="form-wrapper">
+
+    {% if errors %}
+    <div class="error-box">
+        <p><strong>⚠️ Please fix:</strong></p>
+        <ul>{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+
+    <form action="/generate" method="POST" class="wedding-form">
+
+        <!-- SECTION 1: THE COUPLE -->
+        <div class="form-section">
+            <div class="section-header">
+                <span class="section-icon">&#128141;</span>
+                <h2 class="section-title">The Couple</h2>
+                <span class="section-line"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bride_name">Bride Full Name *</label>
+                    <input type="text" id="bride_name" name="bride_name"
+                           placeholder="e.g. Priya Sharma" required>
+                </div>
+                <div class="form-group">
+                    <label for="groom_name">Groom Full Name *</label>
+                    <input type="text" id="groom_name" name="groom_name"
+                           placeholder="e.g. Arjun Mehta" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: WEDDING DAY -->
+        <div class="form-section">
+            <div class="section-header">
+                <span class="section-icon">&#128149;</span>
+                <h2 class="section-title">Wedding Ceremony</h2>
+                <span class="section-line"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="wedding_date">Date *</label>
+                    <input type="date" id="wedding_date" name="wedding_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="ceremony_time">Time</label>
+                    <input type="time" id="ceremony_time" name="ceremony_time">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="venue_name">Venue Name *</label>
+                    <input type="text" id="venue_name" name="venue_name"
+                           placeholder="e.g. The Grand Ballroom" required>
+                </div>
+                <div class="form-group">
+                    <label for="venue_city">City *</label>
+                    <input type="text" id="venue_city" name="venue_city"
+                           placeholder="e.g. Mumbai" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: OTHER CEREMONIES -->
+        <div class="form-section">
+            <div class="section-header">
+                <span class="section-icon">&#127774;</span>
+                <h2 class="section-title">Other Ceremonies</h2>
+                <span class="optional-tag">Optional</span>
+                <span class="section-line"></span>
+            </div>
+            <p class="section-hint">Toggle each ceremony to add it to page 2 of your invitation</p>
+
+            <div class="ceremony-block">
+                <div class="ceremony-header">
+                    <label class="ceremony-toggle">
+                        <input type="checkbox" name="haldi_enabled" id="haldi_enabled"
+                               onchange="toggleCeremony('haldi')">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="ceremony-emoji">&#127774;</span>
+                    <span class="ceremony-label">Haldi Ceremony</span>
+                </div>
+                <div class="ceremony-fields" id="fields-haldi" style="display:none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" name="haldi_date">
+                        </div>
+                        <div class="form-group">
+                            <label>Time</label>
+                            <input type="time" name="haldi_time">
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top:10px;">
+                        <label>Venue</label>
+                        <input type="text" name="haldi_venue" placeholder="e.g. Family Home">
+                    </div>
+                </div>
+            </div>
+
+            <div class="ceremony-block">
+                <div class="ceremony-header">
+                    <label class="ceremony-toggle">
+                        <input type="checkbox" name="mehendi_enabled" id="mehendi_enabled"
+                               onchange="toggleCeremony('mehendi')">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="ceremony-emoji">&#127807;</span>
+                    <span class="ceremony-label">Mehendi Ceremony</span>
+                </div>
+                <div class="ceremony-fields" id="fields-mehendi" style="display:none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" name="mehendi_date">
+                        </div>
+                        <div class="form-group">
+                            <label>Time</label>
+                            <input type="time" name="mehendi_time">
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top:10px;">
+                        <label>Venue</label>
+                        <input type="text" name="mehendi_venue" placeholder="e.g. Bride's Home">
+                    </div>
+                </div>
+            </div>
+
+            <div class="ceremony-block">
+                <div class="ceremony-header">
+                    <label class="ceremony-toggle">
+                        <input type="checkbox" name="reception_enabled" id="reception_enabled"
+                               onchange="toggleCeremony('reception')">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="ceremony-emoji">&#127870;</span>
+                    <span class="ceremony-label">Wedding Reception</span>
+                </div>
+                <div class="ceremony-fields" id="fields-reception" style="display:none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" name="reception_date">
+                        </div>
+                        <div class="form-group">
+                            <label>Time</label>
+                            <input type="time" name="reception_time">
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top:10px;">
+                        <label>Venue</label>
+                        <input type="text" name="reception_venue" placeholder="e.g. Hotel Taj, Mumbai">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── SECTION 5: INVITATION STYLE FIRST ── -->
+<div class="form-section">
+    <div class="section-header">
+        <span class="section-icon">&#9997;&#65039;</span>
+        <h2 class="section-title">Invitation Style</h2>
+        <span class="section-line"></span>
+    </div>
+    <p class="section-hint">Select your style — then choose a matching design below</p>
+    <div class="style-grid">
+
+        <label class="style-card" for="style_traditional">
+            <input type="radio" id="style_traditional" name="style"
+                   value="traditional" checked onchange="updateDesignLabels('traditional')">
+            <div class="style-content">
+                <span class="style-icon">&#128686;</span>
+                <span class="style-name">Traditional</span>
+                <span class="style-desc">Formal, blessings-rich</span>
+            </div>
+        </label>
+
+        <label class="style-card" for="style_modern">
+            <input type="radio" id="style_modern" name="style"
+                   value="modern" onchange="updateDesignLabels('modern')">
+            <div class="style-content">
+                <span class="style-icon">&#10024;</span>
+                <span class="style-name">Modern</span>
+                <span class="style-desc">Clean, elegant</span>
+            </div>
+        </label>
+
+        <label class="style-card" for="style_casual">
+            <input type="radio" id="style_casual" name="style"
+                   value="funny" onchange="updateDesignLabels('casual')">
+            <div class="style-content">
+                <span class="style-icon">&#128514;</span>
+                <span class="style-name">Casual</span>
+                <span class="style-desc">Fun and warm</span>
+            </div>
+        </label>
+
+    </div>
+</div>
+
+<!-- ── SECTION 6: CARD DESIGN (updates based on style) ── -->
+<div class="form-section">
+    <div class="section-header">
+        <span class="section-icon">&#127912;</span>
+        <h2 class="section-title">Card Design</h2>
+        <span class="section-line"></span>
+    </div>
+    <p class="section-hint" id="design-hint">Choose your Traditional invitation design</p>
+    <div class="design-grid">
+
+        <label class="design-card" for="design_peacock">
+            <input type="radio" id="design_peacock" name="card_design" value="peacock_royal">
+            <div class="design-preview peacock-preview">
+                <span class="design-icon">&#129413;</span>
+                <span class="design-name">Peacock Royal</span>
+                <span class="design-badge">Teal &amp; Gold</span>
+            </div>
+        </label>
+
+        <label class="design-card" for="design_purple">
+            <input type="radio" id="design_purple" name="card_design" value="purple_maharaja">
+            <div class="design-preview purple-preview">
+                <span class="design-icon">&#128081;</span>
+                <span class="design-name">Purple Maharaja</span>
+                <span class="design-badge">Royal Purple</span>
+            </div>
+        </label>
+
+        <label class="design-card" for="design_sindoor">
+            <input type="radio" id="design_sindoor" name="card_design" value="sindoor_red">
+            <div class="design-preview sindoor-preview">
+                <span class="design-icon">&#128149;</span>
+                <span class="design-name">Sindoor Red</span>
+                <span class="design-badge">Sacred Red</span>
+            </div>
+        </label>
+
+        <label class="design-card" for="design_midnight">
+            <input type="radio" id="design_midnight" name="card_design" value="midnight_lotus">
+            <div class="design-preview midnight-preview">
+                <span class="design-icon">&#10022;</span>
+                <span class="design-name">Midnight Lotus</span>
+                <span class="design-badge">Navy Silver</span>
+            </div>
+        </label>
+
+        <label class="design-card" for="design_rose">
+            <input type="radio" id="design_rose" name="card_design" value="rose_mehndi">
+            <div class="design-preview rose-preview">
+                <span class="design-icon">&#127801;</span>
+                <span class="design-name">Rose Mehndi</span>
+                <span class="design-badge">Pink Copper</span>
+            </div>
+        </label>
+
+        <label class="design-card" for="design_forest">
+            <input type="radio" id="design_forest" name="card_design" value="forest_sage">
+            <div class="design-preview forest-preview">
+                <span class="design-icon">&#127807;</span>
+                <span class="design-name">Forest Sage</span>
+                <span class="design-badge">Sage Green</span>
+            </div>
+        </label>
+
+    </div>
+</div>
+
+        <!-- SECTION 7: PERSONAL TOUCH -->
+        <div class="form-section">
+            <div class="section-header">
+                <span class="section-icon">&#128140;</span>
+                <h2 class="section-title">Personal Touch</h2>
+                <span class="section-line"></span>
+            </div>
+            <div class="form-group">
+                <label for="special_msg">Special Note (optional)</label>
+                <textarea id="special_msg" name="special_msg" rows="3"
+                    placeholder="e.g. Dress code, how you met, special instructions..."></textarea>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+            ✨ Generate My Invitation
+        </button>
+
+    </form>
+</div>
+
+<!-- DECORATIVE BOTTOM BAND -->
+<div class="form-bottom-band">
+    <div class="band-lotuses">
+        {% for i in range(9) %}<span class="lotus">❀</span>{% endfor %}
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

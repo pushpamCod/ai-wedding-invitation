@@ -1,0 +1,240 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: Georgia, serif;
+  background:#fdf6f0;
+  color:#3d2b1f;
+  min-height:100vh;
+}
+
+.page-wrapper {
+  min-height:100vh;
+  padding:40px 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.container { width:100%; max-width:780px; }
+
+.header { text-align:center; margin-bottom:36px; }
+
+h1 { font-size:2.2rem; color:#8b1a4a; margin-bottom:10px; }
+
+.subtitle { font-size:1rem; color:#7a6a62; }
+
+.error-box {
+  background:#fff0f0;
+  border:1.5px solid #e57373;
+  border-radius:10px;
+  padding:16px 20px;
+  margin-bottom:24px;
+  color:#b71c1c;
+}
+
+.error-box ul { margin-top:8px; padding-left:20px; }
+
+.wedding-form {
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.form-section {
+  background:white;
+  border:1.5px solid #e8d5c4;
+  border-radius:14px;
+  padding:28px;
+  box-shadow:0 2px 12px rgba(139,26,74,0.06);
+}
+
+.section-title {
+  font-size:1.1rem;
+  color:#8b1a4a;
+  margin-bottom:16px;
+  font-weight:bold;
+}
+
+.section-hint {
+  font-size:0.88rem;
+  color:#9e8e85;
+  margin-bottom:12px;
+  margin-top:-10px;
+}
+
+.form-row {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-bottom:16px;
+}
+
+.form-row:last-child { margin-bottom:0; }
+
+.form-group {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+label {
+  font-size:0.9rem;
+  font-weight:bold;
+  color:#5a3e35;
+}
+
+input[type=text], input[type=date], input[type=time], textarea {
+  width:100%;
+  padding:10px 14px;
+  border:1.5px solid #d4b8a8;
+  border-radius:8px;
+  font-size:0.95rem;
+  font-family:inherit;
+  background:#fffaf7;
+  color:#3d2b1f;
+  transition:border-color 0.2s;
+  outline:none;
+}
+
+input:focus, textarea:focus {
+  border-color:#8b1a4a;
+  background:white;
+}
+
+textarea { resize:vertical; min-height:80px; }
+
+/* ===========================
+   DESIGN GRID — Card Picker
+=========================== */
+
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.design-card {
+    cursor: pointer;
+    display: block;
+}
+
+.design-card input[type=radio] {
+    display: none;
+}
+
+.design-preview {
+    height: 100px;
+    border-radius: 12px;
+    border: 3px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px 6px;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.design-preview:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.design-card input:checked + .design-preview {
+    border-color: #8b1a4a;
+    box-shadow: 0 0 0 3px rgba(139,26,74,0.25);
+    transform: translateY(-2px);
+}
+
+.design-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.design-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.design-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 400;
+    opacity: 0.85;
+    text-align: center;
+}
+
+/* Individual design themes */
+
+.peacock-preview {
+    background: linear-gradient(145deg, #0a3828, #1a7a52);
+    border-color: #d4a843;
+    color: #e8c97a;
+}
+
+.royal-gold-preview {
+    background: linear-gradient(145deg, #fffdf5, #f5d98e);
+    color: #5a3200;
+    border-color: #c9a96e;
+}
+
+.rose-garden-preview {
+    background: linear-gradient(145deg, #fff5f7, #ffb3c6);
+    color: #7a1030;
+    border-color: #e8a0b0;
+}
+
+.midnight-preview {
+    background: linear-gradient(145deg, #1a1a2e, #2a2a4e);
+    color: #e2b96f;
+    border-color: #e2b96f;
+}
+
+.pastel-dream-preview {
+    background: linear-gradient(145deg, #f0f4ff, #d4aaff);
+    color: #4a3080;
+    border-color: #b0a8d8;
+}
+
+.sindoor-red-preview {
+    background: linear-gradient(145deg, #fff5f0, #e05030);
+    color: white;
+    border-color: #cc2200;
+}
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #8b1a4a, #c2185b);
+    color: white;
+    font-size: 1.1rem;
+    font-family: inherit;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+}
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 26, 74, 0.35);
+}
+.submit-btn:active {
+    transform: translateY(0);
+}
+/* Badge */
+
+/* Mobile */
+
+@media (max-width: 580px) {
+    .design-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

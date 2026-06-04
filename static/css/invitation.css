@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
+
+.invitation-page { background:#f5ede3; min-height:100vh; }
+
+.inv-page-wrapper {
+    min-height:100vh; padding:32px 20px 60px;
+    display:flex; flex-direction:column;
+    align-items:center; gap:20px;
+}
+
+/* ── BUTTONS ──────────────────────────────── */
+.inv-top-actions {
+    display:flex; gap:16px; justify-content:center;
+    flex-wrap:wrap; width:100%; max-width:680px;
+}
+
+.inv-btn-primary {
+    padding:14px 36px;
+    background:linear-gradient(135deg,#8b1a4a,#c2185b);
+    color:white; border:none; border-radius:10px;
+    font-family:'Montserrat',sans-serif; font-size:1rem;
+    font-weight:500; cursor:pointer; min-width:180px;
+    transition:transform 0.2s,box-shadow 0.2s;
+}
+.inv-btn-primary:hover {
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(139,26,74,0.4);
+}
+
+.inv-btn-secondary {
+    padding:14px 36px; background:white; color:#8b1a4a;
+    border:2px solid #8b1a4a; border-radius:10px;
+    font-family:'Montserrat',sans-serif; font-size:1rem;
+    font-weight:500; text-decoration:none; min-width:180px;
+    text-align:center; display:inline-block;
+    transition:all 0.2s;
+}
+.inv-btn-secondary:hover { background:#8b1a4a; color:white; }
+
+/* ── SHARE ROW ────────────────────────────── */
+.inv-share-row {
+    display:flex; flex-direction:column; align-items:center;
+    gap:12px; width:100%; max-width:680px;
+}
+.share-label {
+    font-family:'Montserrat',sans-serif; font-size:0.78rem;
+    color:#9e8e85; letter-spacing:1px; text-transform:uppercase; margin:0;
+}
+.share-buttons { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+
+.share-btn {
+    display:flex; align-items:center; gap:10px;
+    padding:12px 24px; border-radius:10px;
+    font-family:'Montserrat',sans-serif; font-size:0.9rem;
+    font-weight:500; text-decoration:none; min-width:160px;
+    justify-content:center; transition:transform 0.2s,box-shadow 0.2s;
+}
+.share-btn:hover { transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,0.15); }
+.whatsapp-btn { background:#25D366; color:white; }
+.email-btn    { background:#4a90d9; color:white; }
+
+.share-link-box {
+    display:flex; gap:8px; width:100%; max-width:500px;
+    align-items:center;
+}
+.share-link-box input {
+    flex:1; padding:10px 14px; border:1.5px solid #d4b8a8;
+    border-radius:8px; font-size:0.85rem; background:#fffaf7;
+    color:#3d2b1f; outline:none;
+}
+.copy-btn {
+    padding:10px 18px; background:#8b1a4a; color:white;
+    border:none; border-radius:8px; cursor:pointer;
+    font-family:'Montserrat',sans-serif; font-size:0.85rem;
+    white-space:nowrap; transition:background 0.2s;
+}
+.copy-btn:hover { background:#c2185b; }
+
+/* ── BASE CARD ────────────────────────────── */
+.inv-card {
+    width:100%; max-width:680px;
+    border-radius:4px; padding:52px 56px;
+    text-align:center; position:relative;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+}
+
+.corner {
+    position:absolute; font-size:1.1rem; line-height:1;
+}
+.corner-tl { top:14px;    left:16px;  }
+.corner-tr { top:14px;    right:16px; }
+.corner-bl { bottom:14px; left:16px;  }
+.corner-br { bottom:14px; right:16px; }
+
+/* ── 5 CARD DESIGNS ───────────────────────── */
+
+/* 1. Royal Gold */
+.design-royal-gold {
+    background:linear-gradient(160deg,#fffdf5,#fff8ec);
+    border:1px solid #c9a96e;
+    box-shadow:0 0 0 6px #fffdf5, 0 0 0 8px #c9a96e,
+               0 4px 40px rgba(100,60,20,0.15);
+}
+.design-royal-gold .inv-couple-names { color:#8b1a4a; }
+.design-royal-gold .inv-ampersand    { color:#c9a96e; }
+.design-royal-gold .inv-together     { color:#c9a96e; }
+.design-royal-gold .decor-line       { background:#c9a96e; }
+.design-royal-gold .div-line         { background:#c9a96e; }
+.design-royal-gold .div-flower       { color:#c9a96e; }
+.design-royal-gold .decor-icon       { color:#c9a96e; }
+.design-royal-gold .inv-detail-label { color:#8b1a4a; }
+.design-royal-gold .corner           { color:#c9a96e; }
+.design-royal-gold .guest-badge      { background:#fff8ec; color:#8b1a4a; border-color:#c9a96e; }
+.design-royal-gold .ceremony-item-name { color:#8b1a4a; }
+.design-royal-gold .main-ceremony    { border-color:#c9a96e; background:#fff8ec; }
+
+/* 2. Rose Garden */
+.design-rose-garden {
+    background:linear-gradient(160deg,#fff5f7,#ffe8ed);
+    border:1px solid #e8a0b0;
+    box-shadow:0 0 0 6px #fff5f7, 0 0 0 8px #e8a0b0,
+               0 4px 40px rgba(200,80,100,0.1);
+}
+.design-rose-garden .inv-couple-names { color:#b5294e; }
+.design-rose-garden .inv-ampersand    { color:#e8a0b0; }
+.design-rose-garden .inv-together     { color:#e8a0b0; }
+.design-rose-garden .decor-line       { background:#e8a0b0; }
+.design-rose-garden .div-line         { background:#e8a0b0; }
+.design-rose-garden .div-flower       { color:#e8a0b0; }
+.design-rose-garden .decor-icon       { color:#e8a0b0; }
+.design-rose-garden .inv-detail-label { color:#b5294e; }
+.design-rose-garden .corner           { color:#e8a0b0; }
+.design-rose-garden .guest-badge      { background:#ffe8ed; color:#b5294e; border-color:#e8a0b0; }
+.design-rose-garden .ceremony-item-name { color:#b5294e; }
+.design-rose-garden .main-ceremony    { border-color:#e8a0b0; background:#ffe8ed; }
+.design-rose-garden .inv-body-text    { color:#5a2030; }
+
+/* 3. Midnight Luxury */
+.design-midnight {
+    background:linear-gradient(160deg,#1a1a2e,#16213e);
+    border:1px solid #e2b96f;
+    box-shadow:0 0 0 6px #1a1a2e, 0 0 0 8px #e2b96f,
+               0 4px 40px rgba(0,0,0,0.4);
+}
+.design-midnight .inv-couple-names { color:#e2b96f; }
+.design-midnight .inv-ampersand    { color:#ffffff; }
+.design-midnight .inv-together     { color:#e2b96f; }
+.design-midnight .decor-line       { background:#e2b96f; }
+.design-midnight .div-line         { background:#e2b96f; }
+.design-midnight .div-flower       { color:#e2b96f; }
+.design-midnight .decor-icon       { color:#e2b96f; }
+.design-midnight .inv-detail-label { color:#e2b96f; }
+.design-midnight .inv-detail-value { color:#ffffff; }
+.design-midnight .inv-detail-sub   { color:#aaaaaa; }
+.design-midnight .corner           { color:#e2b96f; }
+.design-midnight .inv-request      { color:#cccccc; }
+.design-midnight .inv-body-text    { color:#e8e8e8; }
+.design-midnight .inv-rsvp         { color:#aaaaaa; }
+.design-midnight .guest-badge      { background:rgba(226,185,111,0.2); color:#e2b96f; border-color:#e2b96f; }
+.design-midnight .ceremony-item-name  { color:#e2b96f; }
+.design-midnight .ceremony-item-details { color:#cccccc; }
+.design-midnight .main-ceremony    { border-color:#e2b96f; background:rgba(226,185,111,0.1); }
+.design-midnight .page2-title      { color:#e2b96f; }
+.design-midnight .inv-together     { color:#e2b96f; }
+
+/* 4. Pastel Dream */
+.design-pastel-dream {
+    background:linear-gradient(160deg,#f0f4ff,#f5f0ff);
+    border:1px solid #b0a8d8;
+    box-shadow:0 0 0 6px #f0f4ff, 0 0 0 8px #b0a8d8,
+               0 4px 40px rgba(120,100,200,0.1);
+}
+.design-pastel-dream .inv-couple-names { color:#6b5b95; }
+.design-pastel-dream .inv-ampersand    { color:#b0a8d8; }
+.design-pastel-dream .inv-together     { color:#b0a8d8; }
+.design-pastel-dream .decor-line       { background:#b0a8d8; }
+.design-pastel-dream .div-line         { background:#b0a8d8; }
+.design-pastel-dream .div-flower       { color:#b0a8d8; }
+.design-pastel-dream .decor-icon       { color:#b0a8d8; }
+.design-pastel-dream .inv-detail-label { color:#6b5b95; }
+.design-pastel-dream .corner           { color:#b0a8d8; }
+.design-pastel-dream .inv-body-text    { color:#3d3560; }
+.design-pastel-dream .guest-badge      { background:#ede8ff; color:#6b5b95; border-color:#b0a8d8; }
+.design-pastel-dream .ceremony-item-name { color:#6b5b95; }
+.design-pastel-dream .main-ceremony    { border-color:#b0a8d8; background:#ede8ff; }
+
+/* 5. Sindoor Red */
+.design-sindoor-red {
+    background:linear-gradient(160deg,#fff5f0,#fff0ea);
+    border:1px solid #cc2200;
+    box-shadow:0 0 0 6px #fff5f0, 0 0 0 8px #cc2200,
+               0 4px 40px rgba(180,30,0,0.15);
+}
+.design-sindoor-red .inv-couple-names { color:#cc2200; }
+.design-sindoor-red .inv-ampersand    { color:#e8850a; }
+.design-sindoor-red .inv-together     { color:#e8850a; }
+.design-sindoor-red .decor-line       { background:#cc2200; }
+.design-sindoor-red .div-line         { background:#cc2200; }
+.design-sindoor-red .div-flower       { color:#e8850a; }
+.design-sindoor-red .decor-icon       { color:#cc2200; }
+.design-sindoor-red .inv-detail-label { color:#cc2200; }
+.design-sindoor-red .corner           { color:#cc2200; }
+.design-sindoor-red .inv-body-text    { color:#3d1500; }
+.design-sindoor-red .guest-badge      { background:#fff0ea; color:#cc2200; border-color:#cc2200; }
+.design-sindoor-red .ceremony-item-name { color:#cc2200; }
+.design-sindoor-red .main-ceremony    { border-color:#cc2200; background:#fff0ea; }
+
+/* ── GUEST BADGE ──────────────────────────── */
+.guest-badge {
+    display:inline-block; padding:4px 18px;
+    border:1px solid; border-radius:20px;
+    font-family:'Montserrat',sans-serif; font-size:0.78rem;
+    font-weight:500; margin-bottom:14px; letter-spacing:1px;
+}
+
+/* ── TYPOGRAPHY ───────────────────────────── */
+.inv-together {
+    font-family:'Montserrat',sans-serif; font-size:0.7rem;
+    font-weight:500; letter-spacing:5px; text-transform:uppercase;
+    color:#c9a96e; margin-bottom:16px;
+}
+.inv-couple-names {
+    font-family:'Great Vibes',cursive; font-size:3.4rem;
+    color:#8b1a4a; line-height:1.2; margin-bottom:4px; font-weight:400;
+}
+.inv-ampersand {
+    display:block; font-size:2.2rem; margin:4px 0; color:#c9a96e;
+}
+.inv-request {
+    font-family:'Montserrat',sans-serif; font-size:0.78rem;
+    font-weight:300; letter-spacing:2px; color:#7a6a62;
+    text-transform:lowercase; margin-bottom:20px;
+}
+.inv-body-text {
+    font-family:'Cormorant Garamond',serif; font-size:1.05rem;
+    line-height:2; color:#3d2b1f; font-style:italic;
+    white-space:pre-wrap; padding:0 8px;
+}
+
+/* ── DECORATIVE ───────────────────────────── */
+.inv-header-decor {
+    display:flex; align-items:center; justify-content:center;
+    gap:12px; margin:16px auto; width:60%;
+}
+.decor-line { flex:1; height:1px; background:#c9a96e; opacity:0.6; }
+.decor-icon { font-size:1rem; color:#c9a96e; }
+
+.inv-divider {
+    display:flex; align-items:center; justify-content:center;
+    gap:12px; width:50%; margin:20px auto;
+}
+.div-line   { flex:1; height:1px; background:#c9a96e; opacity:0.5; }
+.div-flower { font-size:0.85rem; color:#c9a96e; }
+
+/* ── EVENT DETAILS ────────────────────────── */
+.inv-details-grid {
+    display:flex; justify-content:center; align-items:flex-start;
+    gap:20px; flex-wrap:wrap; margin:8px 0;
+}
+.inv-detail-item  { display:flex; flex-direction:column; gap:4px; min-width:100px; }
+.inv-detail-label {
+    font-family:'Montserrat',sans-serif; font-size:0.65rem;
+    font-weight:500; letter-spacing:3px; text-transform:uppercase; color:#8b1a4a;
+}
+.inv-detail-value { font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:#3d2b1f; font-weight:600; }
+.inv-detail-sub   { font-family:'Montserrat',sans-serif; font-size:0.75rem; color:#7a6a62; font-weight:300; }
+.inv-detail-divider { font-size:0.6rem; color:#c9a96e; padding-top:18px; opacity:0.7; }
+.inv-rsvp {
+    font-family:'Montserrat',sans-serif; font-size:0.72rem;
+    letter-spacing:2px; color:#9e8e85; margin-top:8px; text-transform:uppercase;
+}
+
+/* ── PAGE 2: CEREMONIES ───────────────────── */
+.inv-page2 { margin-top: 8px; }
+
+.page2-title {
+    font-family:'Great Vibes',cursive; font-size:2.4rem;
+    color:#8b1a4a; font-weight:400; margin:8px 0 4px;
+}
+
+.ceremony-item {
+    display:flex; align-items:flex-start; gap:16px;
+    padding:16px 20px; margin:10px 0;
+    border:1px solid #e8d5c4; border-radius:10px;
+    background:#fffaf7; text-align:left;
+}
+
+.main-ceremony {
+    border-width:2px; border-color:#c9a96e;
+    background:#fff8ec;
+}
+
+.ceremony-item-icon { font-size:1.6rem; min-width:36px; text-align:center; }
+
+.ceremony-item-body { flex:1; }
+
+.ceremony-item-name {
+    font-family:'Cormorant Garamond',serif; font-size:1.1rem;
+    font-weight:600; color:#8b1a4a; margin-bottom:6px;
+}
+
+.ceremony-item-details {
+    display:flex; flex-wrap:wrap; gap:12px;
+    font-family:'Montserrat',sans-serif;
+    font-size:0.8rem; color:#7a6a62;
+}
+
+.ceremony-item-details span { display:flex; align-items:center; gap:4px; }
+
+/* ── DESIGN PICKER (form) ─────────────────── */
+.design-grid {
+    display:grid; grid-template-columns:repeat(5,1fr);
+    gap:12px; margin-top:12px;
+}
+.design-card input[type=radio] { display:none; }
+.design-card { cursor:pointer; }
+.design-preview {
+    height:80px; border-radius:10px; border:3px solid transparent;
+    display:flex; align-items:flex-end; justify-content:center;
+    padding-bottom:8px; transition:all 0.2s; position:relative;
+    overflow:hidden;
+}
+.design-card input:checked + .design-preview {
+    border-color:#8b1a4a;
+    box-shadow:0 0 0 3px rgba(139,26,74,0.2);
+}
+.design-name {
+    font-family:'Montserrat',sans-serif; font-size:0.65rem;
+    font-weight:600; letter-spacing:1px; text-transform:uppercase;
+    background:rgba(0,0,0,0.35); color:white;
+    padding:2px 8px; border-radius:4px;
+}
+.royal-gold-preview   { background:linear-gradient(135deg,#fffdf5,#f5d98e); }
+.rose-garden-preview  { background:linear-gradient(135deg,#fff5f7,#ffb3c6); }
+.midnight-preview     { background:linear-gradient(135deg,#1a1a2e,#e2b96f); }
+.pastel-dream-preview { background:linear-gradient(135deg,#f0f4ff,#d4aaff); }
+.sindoor-red-preview  { background:linear-gradient(135deg,#fff5f0,#cc2200); }
+
+/* ── PRIORITY GRID ────────────────────────── */
+.priority-grid {
+    display:grid; grid-template-columns:repeat(4,1fr);
+    gap:12px; margin-top:10px;
+}
+.priority-card input[type=radio] { display:none; }
+.priority-card {
+    cursor:pointer; border:2px solid #e0cfc6; border-radius:12px;
+    padding:14px 10px; text-align:center; background:#fffaf7;
+    transition:all 0.2s;
+}
+.priority-card:hover { border-color:#c47e9a; background:#fff0f5; }
+.priority-card input:checked + .priority-content {
+    /* handled by JS */ 
+}
+.priority-card.selected {
+    border-color:#8b1a4a; background:#fff0f5;
+    box-shadow:0 0 0 3px rgba(139,26,74,0.15);
+}
+.priority-content { display:flex; flex-direction:column; gap:4px; pointer-events:none; }
+.priority-icon { font-size:1.6rem; }
+.priority-name { font-weight:bold; font-size:0.85rem; color:#5a3e35; }
+.priority-desc { font-size:0.72rem; color:#9e8e85; }
+
+/* ── CEREMONY TOGGLE ──────────────────────── */
+.ceremony-block {
+    border:1.5px solid #e8d5c4; border-radius:12px;
+    padding:16px 20px; margin-bottom:12px; background:#fffaf7;
+}
+.ceremony-header {
+    display:flex; align-items:center; gap:12px; cursor:pointer;
+}
+.ceremony-emoji { font-size:1.4rem; }
+.ceremony-label {
+    font-weight:bold; font-size:0.95rem; color:#5a3e35; flex:1;
+}
+.ceremony-fields { margin-top:16px; }
+
+/* Toggle switch */
+.ceremony-toggle { position:relative; display:inline-block; width:44px; height:24px; }
+.ceremony-toggle input { opacity:0; width:0; height:0; }
+.toggle-slider {
+    position:absolute; cursor:pointer; inset:0;
+    background:#d4b8a8; border-radius:24px; transition:0.3s;
+}
+.toggle-slider:before {
+    content:""; position:absolute; height:18px; width:18px;
+    left:3px; bottom:3px; background:white; border-radius:50%; transition:0.3s;
+}
+.ceremony-toggle input:checked + .toggle-slider { background:#8b1a4a; }
+.ceremony-toggle input:checked + .toggle-slider:before { transform:translateX(20px); }
+
+.optional-tag {
+    font-size:0.7rem; font-weight:400; background:#e8f4e8;
+    color:#4a7c59; padding:2px 10px; border-radius:12px;
+    margin-left:10px; vertical-align:middle;
+}
+
+/* ── PRINT ────────────────────────────────── */
+@media print {
+    .inv-top-actions, .inv-share-row { display:none !important; }
+    html,body,.invitation-page { background:white !important; }
+    .inv-page-wrapper { padding:0 !important; display:block !important; }
+    .inv-card {
+        max-width:100% !important; width:100% !important;
+        margin:0 0 0 0 !important; padding:36px 44px !important;
+        box-shadow:none !important; border-radius:0 !important;
+        page-break-after:always;
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
+    }
+    .inv-page2 { page-break-after:auto; }
+    @page { size:A4 portrait; margin:8mm; }
+}
+
+/* ── RESPONSIVE ───────────────────────────── */
+@media(max-width:680px) {
+    .inv-card         { padding:36px 24px; }
+    .inv-couple-names { font-size:2.6rem; }
+    .inv-details-grid { flex-direction:column; align-items:center; }
+    .inv-detail-divider { display:none; }
+    .design-grid      { grid-template-columns:repeat(3,1fr); }
+    .priority-grid    { grid-template-columns:repeat(2,1fr); }
+    .inv-btn-primary, .inv-btn-secondary { min-width:unset; width:100%; }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Invitation — Preview</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="page-wrapper">
+    <div class="container">
+
+        <div class="header">
+            <h1>💍 Wedding Details Received!</h1>
+            <p class="subtitle">Step 2 complete — AI generation coming next</p>
+        </div>
+
+        <!-- Display all submitted data to confirm it arrived correctly -->
+        <div class="details-preview">
+            <h2>Here's what we received:</h2>
+
+            <table class="details-table">
+                <tr>
+                    <td class="label">👰 Bride</td>
+                    <td>{{ details.bride_name }}</td>
+                </tr>
+                <tr>
+                    <td class="label">🤵 Groom</td>
+                    <td>{{ details.groom_name }}</td>
+                </tr>
+                <tr>
+                    <td class="label">📅 Date</td>
+                    <td>{{ details.wedding_date }}</td>
+                </tr>
+                <tr>
+                    <td class="label">⏰ Time</td>
+                    <td>{{ details.ceremony_time if details.ceremony_time else "Not specified" }}</td>
+                </tr>
+                <tr>
+                    <td class="label">🏛️ Venue</td>
+                    <td>{{ details.venue_name }}</td>
+                </tr>
+                <tr>
+                    <td class="label">📍 City</td>
+                    <td>{{ details.venue_city }}</td>
+                </tr>
+                <tr>
+                    <td class="label">🎨 Style</td>
+                    <td>{{ details.style | capitalize }}</td>
+                </tr>
+                <tr>
+                    <td class="label">💌 Message</td>
+                    <td>{{ details.special_msg if details.special_msg else "None" }}</td>
+                </tr>
+            </table>
+
+            <a href="/" class="back-btn">← Edit Details</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

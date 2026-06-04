@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Wedding Invitation Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="page-wrapper">
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>💍 AI Wedding Invitation Generator</h1>
+            <p class="subtitle">Fill in your wedding details and let AI craft the perfect invitation</p>
+        </div>
+
+        <!-- Error messages (only shown if validation fails) -->
+        <!-- The 'errors' variable comes from Flask when validation fails -->
+        {% if errors %}
+        <div class="error-box">
+            <p><strong>⚠️ Please fix the following:</strong></p>
+            <ul>
+                {% for error in errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- The Form -->
+        <!-- action="/generate" = where to send data -->
+        <!-- method="POST" = how to send it (hidden, secure) -->
+        <form action="/generate" method="POST" class="wedding-form">
+
+            <!-- Section 1: The Couple -->
+            <div class="form-section">
+                <h2 class="section-title">👫 The Couple</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bride_name">Bride's Full Name *</label>
+                        <input
+                            type="text"
+                            id="bride_name"
+                            name="bride_name"
+                            placeholder="e.g. Priya Sharma"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="groom_name">Groom's Full Name *</label>
+                        <input
+                            type="text"
+                            id="groom_name"
+                            name="groom_name"
+                            placeholder="e.g. Arjun Mehta"
+                            required
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Event Details -->
+            <div class="form-section">
+                <h2 class="section-title">📅 Event Details</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="wedding_date">Wedding Date *</label>
+                        <input
+                            type="date"
+                            id="wedding_date"
+                            name="wedding_date"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="ceremony_time">Ceremony Time</label>
+                        <input
+                            type="time"
+                            id="ceremony_time"
+                            name="ceremony_time"
+                        >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="venue_name">Venue Name *</label>
+                        <input
+                            type="text"
+                            id="venue_name"
+                            name="venue_name"
+                            placeholder="e.g. The Grand Ballroom"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="venue_city">Venue City *</label>
+                        <input
+                            type="text"
+                            id="venue_city"
+                            name="venue_city"
+                            placeholder="e.g. Mumbai"
+                            required
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Style Selection -->
+            <div class="form-section">
+                <h2 class="section-title">🎨 Invitation Style</h2>
+                <p class="section-hint">This controls the tone and language the AI will use</p>
+
+                <!-- Style cards — clicking one selects the radio button -->
+                <div class="style-grid">
+
+                    <label class="style-card" for="style_traditional">
+                        <input type="radio" id="style_traditional" name="style" value="traditional" checked>
+                        <div class="style-content">
+                            <span class="style-icon">🪔</span>
+                            <span class="style-name">Traditional Indian</span>
+                            <span class="style-desc">Formal, sanskaar-rich, family-oriented</span>
+                        </div>
+                    </label>
+
+                    <label class="style-card" for="style_modern">
+                        <input type="radio" id="style_modern" name="style" value="modern">
+                        <div class="style-content">
+                            <span class="style-icon">✨</span>
+                            <span class="style-name">Modern Minimal</span>
+                            <span class="style-desc">Clean, elegant, contemporary</span>
+                        </div>
+                    </label>
+
+                    <label class="style-card" for="style_funny">
+                        <input type="radio" id="style_funny" name="style" value="funny">
+                        <div class="style-content">
+                            <span class="style-icon">😄</span>
+                            <span class="style-name">Funny & Casual</span>
+                            <span class="style-desc">Witty, fun, informal and warm</span>
+                        </div>
+                    </label>
+
+                </div>
+            </div>
+
+            <!-- Section 4: Personal Message -->
+            <div class="form-section">
+                <h2 class="section-title">💌 Personal Touch</h2>
+                <div class="form-group">
+                    <label for="special_msg">Special Message or Note (optional)</label>
+                    <textarea
+                        id="special_msg"
+                        name="special_msg"
+                        rows="3"
+                        placeholder="e.g. Mention that we met in college, or include a note about the dress code..."
+                    ></textarea>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">
+                ✨ Generate My Invitation
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
