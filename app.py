@@ -29,8 +29,10 @@ db_path = os.path.join(
     "invitations.db"
 )
 os.makedirs(os.path.dirname(db_path), exist_ok=True)
-app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path}"
-# ── DATABASE MODEL ──────────────────────────────────────────
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+    "DATABASE_URL",
+    "sqlite:///invitations.db"
+)# ── DATABASE MODEL ──────────────────────────────────────────
 class Invitation(db.Model):
     id              = db.Column(db.Integer, primary_key=True)
     share_id        = db.Column(db.String(12), unique=True, nullable=False)
